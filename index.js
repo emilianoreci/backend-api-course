@@ -28,6 +28,6 @@ app.use(express.json());
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/events", require("./routes/events"));
 
-app.listen(4000, () => {
+app.listen(process.env.PORT, () => {
   console.log(`server run on port ${process.env.PORT}`);
 });
