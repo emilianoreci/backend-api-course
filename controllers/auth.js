@@ -67,12 +67,12 @@ const loginUsuario = async (req, res = response) => {
     }
 
     // Generar Token
-    const token = await generarJWT(userInBd.uid, userInBd.name);
+    const token = await generarJWT(userInBd.id, userInBd.name);
 
     res.status(201).json({
       ok: true,
       msg: `login ok`,
-      uid: userInBd.uid,
+      uid: userInBd.id,
       name: userInBd.name,
       token,
     });
@@ -93,6 +93,8 @@ const revalidarToken = async (req, res = response) => {
 
   res.json({
     ok: true,
+    uid,
+    name,
     token,
   });
 };
