@@ -27,7 +27,7 @@ const crearEvento = async (req, res = response) => {
 
     return res.status(200).json({
       ok: true,
-      msg: eventoGuardado,
+      evento: eventoGuardado,
     });
   } catch (error) {
     console.log(error);
@@ -54,7 +54,7 @@ const actualizarEvento = async (req, res = response) => {
 
     if (evento.user.toString() !== uid) {
       return res.status(401).json({
-        ok: true,
+        ok: false,
         msg: "no esta autorizado a editar un evento de otra persona",
       });
     }
@@ -99,7 +99,7 @@ const eliminarEvento = async (req, res = response) => {
 
     if (evento.user.toString() !== uid) {
       return res.status(401).json({
-        ok: true,
+        ok: false,
         msg: "no esta autorizado a eliminar un evento de otra persona",
       });
     }
